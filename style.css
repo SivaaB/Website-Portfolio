@@ -1,0 +1,647 @@
+@font-face {
+    font-family: "Monument";
+    font-style: normal;
+    font-weight: normal;
+    src: local("fonts/Monument_Font/MonumentExtendedRegular.woff"), url(fonts/Monument_Font/MonumentExtendedRegular.woff) format("woff");
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    /*border: solid white 1px;*/
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: #181818;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #a34a0a2d;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #a34a0ae1;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c95d10e1;
+  }
+  
+  .inner {
+    background-color: #181818;
+    width: 90vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    border: 3px solid #2f201850;
+    border-top: none;
+    border-bottom: none;
+  }
+  .navmob {
+    display: none;
+  }
+  .nav {
+    height: auto;
+    position: relative;
+    top: 3%;
+    margin-left: 5%;
+    width: 90%;
+  }
+  .nav ul {
+    margin-bottom: 8vh;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+  .nav ul li a {
+    font-family: "Lufga";
+    font-weight: 500;
+    font-size: 2.8vh;
+    color: white;
+    text-decoration: none;
+  }
+  .nav ul li a:hover {
+    background-image: linear-gradient(
+      215deg,
+      rgba(255, 107, 17, 1) 0%,
+      rgba(255, 54, 45, 1) 100%
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  .nav ul li .gradient-text {
+    font-weight: 600;
+  }
+  
+  .socials {
+    margin-left: 5%;
+    transform: translateY(20px);
+    height: auto;
+  }
+  .socials i {
+    display: none;
+  }
+  .socials ul li {
+    padding-right: 5%;
+    font-size: 1.3rem;
+    list-style-type: none;
+    display: inline-flex;
+  }
+  
+  .socials ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  .socials ul li a:hover {
+    background-image: linear-gradient(
+      215deg,
+      rgba(255, 107, 17, 1) 0%,
+      rgba(255, 54, 45, 1) 100%
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  
+  .header {
+    /* border: 0.4px solid white; */
+  }
+  img {
+    pointer-events: none;
+  
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  #first img {
+    width: 100%;
+  }
+  .hed {
+    height: auto;
+  }
+  
+  #first h1 {
+    font-family: "Monument", sans-serif;
+    margin-bottom: -21px;
+    font-size: 11.89vh;
+    padding-left: 5%;
+  }
+  #first .slight-text {
+    font-size: 4.4vh;
+    padding-bottom: 5px;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(
+      215deg,
+      rgba(255, 107, 17, 1) 0%,
+      rgba(255, 54, 45, 1) 100%
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  
+  .slight-text {
+    -webkit-text-stroke: 0.3px #a34a0a90;
+    -webkit-text-fill-color: #261b19;
+  }
+  
+  .expand {
+    display: block;
+    transition: 0.5s ease;
+    width: inherit;
+    background: linear-gradient(
+      0deg,
+      rgba(255, 108, 17, 0.005) 0%,
+      rgba(255, 107, 17, 0) 100%
+    );
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+  }
+  .expand:hover {
+    background: linear-gradient(
+      0deg,
+      rgba(255, 108, 17, 0.089) 0%,
+      rgba(255, 107, 17, 0) 100%
+    );
+    padding-bottom: 10px;
+  }
+  #expand-icon {
+    padding-bottom: 20px;
+    color: white;
+    font-size: 34px;
+  }
+  .material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: "liga";
+  }
+  
+  .poop {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .poop .gradient-text {
+    font-weight: 400;
+    font-family: "Monument", sans-serif;
+    font-size: 3vh;
+    margin-top: 10px;
+  }
+  
+  #about,
+  #projects,
+  #work,
+  #contact {
+    padding-top: 6vh;
+    height: auto;
+    display: block;
+  }
+  
+  #about .exptitle {
+    font-weight: 500;
+  }
+  .next-icon {
+    transform: translateY(10px);
+    background-image: linear-gradient(
+      215deg,
+      rgba(255, 107, 17, 1) 0%,
+      rgba(255, 54, 45, 1) 100%
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+  
+  p {
+    font-family: "Lufga";
+    color: white;
+    font-size: 2.5vh;
+    font-weight: normal;
+    line-height: 4.2vh;
+  }
+  
+  p a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #ff5b1a;
+    font-weight: 500;
+    border-bottom: 2px solid #ff5b1a20;
+    transition: 0.3s ease-in-out;
+  }
+  
+  p a:hover {
+    border-bottom: 2px solid #ff5b1a40;
+  }
+  
+  p b {
+    font-weight: 500;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .container a {
+    text-decoration: none;
+  }
+  .container .card {x
+    cursor: pointer;
+    margin-top: 2vh;
+    width: 26vh;
+    height: 26vh;
+    background-size: 200px;
+    border-radius: 18px;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .container .card h1 {
+    text-transform: uppercase;
+    padding-left: 15px;
+    font-family: "Monument";
+    font-weight: 500;
+    font-size: 2.3vh;
+    color: white;
+  }
+  .container .card p {
+    font-size: 1.8vh;
+    padding: 0 0 15px 15px;
+    line-height: normal;
+    opacity: 80%;
+    width: 87%;
+  }
+  
+  .hpbox {
+    background-position: center;
+  }
+  .text {
+    border-radius: 18px;
+  
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+    height: inherit;
+    width: inherit;
+    transition: 0.3s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .socials {
+    margin-bottom: 5%;
+  }
+  .devpost:hover {
+  }
+  
+  #projects {
+    display: flex;
+    height: auto;
+
+  }
+  .text:hover {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+    backdrop-filter: blur(1px);
+  
+    opacity: 100%;
+  }
+  
+  .menu-wrapper {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 34px;
+    height: 35px;
+  }
+  
+  .menu-line {
+    color: rgb(0, 0, 0);
+    width: 90%;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .line1 {
+    top: 25%;
+  }
+  .line3 {
+    bottom: 25%;
+  }
+  
+  #work,
+  #contact {
+    padding-top: 5%;
+    height: auto;
+  }
+  
+  #footer {
+    padding-top: 5%;
+    padding-bottom: 3%;
+    height: auto;
+  }
+  
+  #footer .poop {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  #footer .gradient-text {
+    font-size: 1rem;
+    font-family: "Lufga";
+    font-weight: 600;
+    float: left;
+  }
+  
+  #footer .mail {
+    width: 50%;
+  }
+  #footer span {
+    font-size: 1rem;
+    font-family: "Lufga";
+    text-align: left;
+    margin: auto;
+    width: 90%;
+    opacity: 40%;
+    margin-top: 2%;
+    font-weight: 400;
+    color: white;
+    background-image: none;
+  }
+  
+  #footer #contact {
+    padding-bottom: 5%;
+  }
+  
+  .poop .socials {
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    outline: none;
+  }
+  
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 5%;
+  }
+  
+  #contact form input,
+  textarea {
+    color: white;
+    font-size: 15px;
+    font-family: "Lufga";
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #ff5b1a18;
+    border: 2px solid #ff5b1a10;
+    outline: none;
+  }
+  #contact form #submit {
+    background: linear-gradient(
+      215deg,
+      rgba(255, 107, 17, 1) 0%,
+      rgba(255, 54, 45, 1) 100%
+    );
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  #contact form ::placeholder {
+    color: #ffffff46;
+  }
+  
+  #contact form label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: "Lufga";
+  }
+  
+  #message {
+    margin-bottom: 0.8rem;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    body {
+      background-color: lightblue;
+    }
+    .inner {
+      padding-top: 20%;
+      width: 100vw;
+      background-color: #181818;
+      margin: auto;
+      display: flex;
+      height: auto;
+      flex-direction: column;
+      border: none;
+    }
+    .nav {
+      display: none;
+    }
+    .navmob {
+      position: absolute;
+      transition: display 0.3s ease-in-out;
+      top: 0;
+      z-index: 10000;
+      display: none;
+      height: 100vh;
+      width: 100%;
+      background: #000000e3;
+      backdrop-filter: blur(4px);
+    }
+    .navmob i {
+      color: white;
+      width: 100%;
+      margin-top: 5%;
+      margin-left: 5%;
+      font-size: 1.6rem;
+    }
+    .navmob ul {
+      margin-left: 5%;
+      margin-top: 10%;
+      list-style-type: none;
+    }
+    .navmob ul li {
+      margin-bottom: 10%;
+    }
+    .navmob ul li a {
+      font-family: "Lufga";
+      font-weight: 500;
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+    }
+    .socials {
+      position: absolute;
+      top: 0;
+      padding-top: 1%;
+      width: 90%;
+    }
+    .socials li {
+      float: right;
+    }
+    .socials ul li a {
+      font-size: 1.6rem;
+    }
+    .socials i {
+      display: block;
+      font-size: 1.6rem;
+      float: left;
+      color: white;
+    }
+  
+    #first h1 {
+      font-size: 13.2vw;
+      padding-left: 5%;
+      padding-bottom: 3%;
+    }
+    #first .slight-text {
+      font-size: 5.5vw;
+      padding-bottom: 5%;
+    }
+    .expand {
+      transition: 0.5s ease;
+      width: inherit;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 108, 17, 0.005) 0%,
+        rgba(255, 107, 17, 0) 100%
+      );
+      cursor: pointer;
+      align-items: bottom;
+      text-align: center;
+    }
+  
+    #about {
+      margin: 0;
+      padding-top: 10%;
+    }
+    #about * {
+      padding: 0;
+      margin: 0;
+    }
+    #about .poop {
+      padding-left: 5%;
+      width: 90%;
+      font-size: 1px;
+    }
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .container .card {
+      margin-top: 20px;
+      width: 100%;
+      background-size: cover; 
+      background-position: center;
+    }
+  
+    .text {
+      opacity: 100;
+    }
+    #contact form {
+      width: 100%;
+    }
+    .poop .socials {
+      position: relative;
+      margin-bottom: 4rem;
+    }
+    .poop .socials li {
+      float: left;
+    }
+  
+    #footer .poop {
+      flex-direction: column;
+    }
+    #footer .poop p {
+      font-size: 1.2rem;
+    }
+  }
